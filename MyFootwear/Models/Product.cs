@@ -32,6 +32,8 @@ namespace MyFootwear.Models
         [ForeignKey("BrandID")]
         public Brand Brand { get; set; }
 
+      
+
        
         
 
