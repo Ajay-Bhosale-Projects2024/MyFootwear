@@ -1,0 +1,24 @@
+﻿@model MyFootwear.Models.Product
+@{
+    ViewBag.Title = "Buy";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Buy</h2>
+
+
+<div>
+    <strong>Product Name :</strong> @Model.ProuductName<br />
+    <strong>Brand :</strong>    @Model.Brand.BrandName<br />
+    <strong>Model :</strong>   @Model.Price<br />
+    <strong>Customer Name :</strong>  @ViewBag.cname<br />
+    <strong>Shipping Address:</strong>  @ViewBag.Address<br />
+    <strong>Mobile No :</strong>  @ViewBag.Mobile
+
+</div>
+@using (Html.BeginForm("Order", "Home", FormMethod.Post))
+{
+    <input type="number" value="@Model.ProudctId" name="ProudctId" hidden />
+    <input type="submit" value="Buy" class="btn btn-outline-warning" />
+
+}

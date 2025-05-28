@@ -1,0 +1,97 @@
+﻿@model IEnumerable<MyFootwear.Models.Product>
+
+@{
+    ViewBag.Title = "AllProudcts";
+    Layout = "~/Views/Shared/DashBoardLayout.cshtml";
+}
+
+<h4>hiii..@User.Identity.Name</h4>
+<h2>AllProudcts</h2>
+
+<p>
+    @Html.ActionLink("You Got Order", "Orders")<br />
+    @Html.ActionLink("Create Brand", "AddBrand", "Dashboard")<br />
+    @Html.ActionLink("Create Type", "AddType", "Dashboard")<br />
+    @Html.ActionLink("Add Product", "AddProduct")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProuductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BrandID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TypeID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SellerId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Size)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Material)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Availability)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProuductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BrandID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SellerId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Size)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Material)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Image)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Availability)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProudctId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ProudctId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ProudctId })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@User.Identity.Name
+@User.Identity.AuthenticationType
+@Session["SellerId"]

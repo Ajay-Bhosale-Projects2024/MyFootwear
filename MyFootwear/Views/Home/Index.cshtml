@@ -1,0 +1,81 @@
+﻿@model IEnumerable<MyFootwear.Models.Product>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<main>
+    <div>
+
+        @*<table border="1" align="center" class="table table-bordered;font-weight:bold">
+        <tr style="background-color:mediumpurple;color:white">
+            <td>Product Name</td>
+            <td>Brand</td>
+            <td>Type</td>
+            <td>Seller Name</td>
+            <td>Size</td>
+            <td>Material</td>
+            <td>Price</td>
+            <td>Image</td>
+            <td>Description</td>
+            <td>Action</td>
+        </tr>
+        @foreach (var k in Model)
+        {
+            <tr style="font-weight: bold">
+                <td>@Html.DisplayFor(P => k.ProuductName)</td>
+                <td>@Html.DisplayFor(P => k.Brand.BrandName)</td>
+                <td>@Html.DisplayFor(P => k.Type.TypesName)</td>
+                <td>@Html.DisplayFor(P => k.Seller.SellerName)</td>
+                <td>@Html.DisplayFor(P => k.Size)</td>
+                <td>@Html.DisplayFor(P => k.Material)</td>
+                <td>@Html.DisplayFor(P => k.Price)</td>
+                <td>@Html.DisplayFor(P => k.Image)</td>
+                <td>@Html.DisplayFor(P => k.Description)</td>
+                <td>@Html.ActionLink("Buy", "Buy", new { ProudctId = k.ProudctId })</td>
+                <td>@Html.ActionLink("Card", "Card", new { ProudctId = k.ProudctId })</td>
+            </tr>
+            <div>
+        *@
+
+        
+
+      
+            @foreach (var k in Model)
+            {
+                <div style="text-align:center;padding:20px" class="float-sm-start" >
+                    <fieldset style="border:2px solid grey;width:310px;font-family:sans-serif">
+                        <img src="~/Uploads/@k.Image" style="width:308px;height:260px" />
+                        <strong>ProuductName  : </strong>@k.ProuductName<br />
+                        <strong>Brand</strong>  : @k.Brand.BrandName<br />
+                        <strong>Type</strong>    : @k.Type.TypesName<br />
+                        <strong>Size</strong>      : @k.Size<br />
+                        <strong>Material</strong>    :@k.Material<br />
+                        <strong>Price</strong>         :@k.Price<br />
+                        <strong>Description</strong>  :@k.Description<br />
+                        <div style="padding-top: 2px; padding-bottom: 2px;border-top:2px solid purple;font-weight:bold">
+                            <a href="~/Home/Buy?ProudctId=@k.ProudctId" class="btn btn-success" style="padding-left: 50px; padding-right: 50px;border-radius:0px">Buy</a>
+                            &nbsp; &nbsp;
+                            @if (Session["CustomerName"] == null)
+                            {
+                                <a href="~/Home/CustomerLogin" class="btn btn-warning" style="padding-left: 50px; padding-right: 50px;border-radius:0px">Cart</a>
+                            }
+                            else
+                            {
+                                <input type="submit" value=" Cart" onclick="mycart(@k.ProudctId)" class="btn btn-warning" style="padding-left: 50px; padding-right: 50px;border-radius:0px" />
+                            }
+                        </div>
+
+                    </fieldset>
+              </div>
+            }
+       
+
+        @*}
+
+         </table>
+          </div>
+        <div>*@
+    </div>
+   
+</main>
